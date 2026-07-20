@@ -8,7 +8,7 @@ description: >-
 
 <div class="chapter-hero">
   <img
-    src="assets/images/understanding-ai.png"
+    src="../assets/images/understanding-ai.png"
     alt="Abstract interconnected network representing ideas and understanding"
     loading="eager"
     class="chapter-hero__img"
