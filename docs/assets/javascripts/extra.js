@@ -101,6 +101,8 @@
 
     /* Attempt to submit via fetch (for Formspree and similar services) */
     const submitBtn = form.querySelector('[type="submit"]');
+    if (!submitBtn) return;
+
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending…";
 
