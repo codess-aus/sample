@@ -115,8 +115,7 @@
 
       if (response.ok) {
         showStatus(
-          "<strong>Thank you for your enquiry.</strong> " +
-            "We will be in touch within a few business days.",
+          "Thank you for your enquiry. We will be in touch within a few business days.",
           "success"
         );
         form.reset();
