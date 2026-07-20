@@ -1,0 +1,646 @@
+/* ==========================================================================
+   AI Education & Mentoring Workshops — Custom stylesheet
+   Companion to Material for MkDocs
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens (CSS custom properties)
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-md-color-scheme="default"] {
+  /* Backgrounds */
+  --ws-bg:            #faf8ff;
+  --ws-surface:       #ffffff;
+  --ws-surface-raise: #f4efff;
+
+  /* Accent palette */
+  --ws-purple:        #6d3dcc;
+  --ws-purple-light:  #8b5cf6;
+  --ws-lilac:         #ddd1ff;
+  --ws-peach:         #d96f45;
+
+  /* Text */
+  --ws-text:          #211a35;
+  --ws-text-muted:    #5f5870;
+
+  /* Borders & shadows */
+  --ws-border:        rgba(74, 54, 110, 0.16);
+  --ws-shadow:        0 2px 16px rgba(74, 54, 110, 0.10);
+  --ws-shadow-hover:  0 6px 28px rgba(74, 54, 110, 0.18);
+
+  /* Hero gradient */
+  --ws-hero-bg:       linear-gradient(160deg, #1e1235 0%, #2d1a5e 50%, #1a1a2e 100%);
+  --ws-hero-text:     #f8f7fc;
+  --ws-hero-sub:      #c8c4d4;
+
+  /* Spacing */
+  --ws-radius:        14px;
+  --ws-radius-sm:     8px;
+}
+
+[data-md-color-scheme="slate"] {
+  /* Backgrounds */
+  --ws-bg:            #15151f;
+  --ws-surface:       #20202b;
+  --ws-surface-raise: #282736;
+
+  /* Accent palette */
+  --ws-purple:        #8b5cf6;
+  --ws-purple-light:  #a78bfa;
+  --ws-lilac:         #c4b5fd;
+  --ws-peach:         #f3a683;
+
+  /* Text */
+  --ws-text:          #f8f7fc;
+  --ws-text-muted:    #c8c4d4;
+
+  /* Borders & shadows */
+  --ws-border:        rgba(196, 181, 253, 0.20);
+  --ws-shadow:        0 2px 16px rgba(0, 0, 0, 0.40);
+  --ws-shadow-hover:  0 6px 28px rgba(0, 0, 0, 0.55);
+
+  /* Hero gradient */
+  --ws-hero-bg:       linear-gradient(160deg, #0d0b18 0%, #1a1035 50%, #15151f 100%);
+  --ws-hero-text:     #f8f7fc;
+  --ws-hero-sub:      #c8c4d4;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base overrides
+   -------------------------------------------------------------------------- */
+
+body {
+  background-color: var(--ws-bg);
+  color: var(--ws-text);
+}
+
+/* Readable prose width */
+.md-content__inner {
+  max-width: 78ch;
+}
+
+/* Body text size floor */
+.md-typeset {
+  font-size: 1rem; /* 16px */
+  line-height: 1.75;
+}
+
+/* --------------------------------------------------------------------------
+   3. Skip-to-content link (accessibility)
+   -------------------------------------------------------------------------- */
+
+.md-skip {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  background: var(--ws-purple);
+  color: #fff;
+  border-radius: var(--ws-radius-sm);
+  font-weight: 700;
+  transition: top 0.15s;
+}
+
+.md-skip:focus {
+  top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero section
+   -------------------------------------------------------------------------- */
+
+.hero {
+  background: var(--ws-hero-bg);
+  color: var(--ws-hero-text);
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem);
+  margin: -0.8rem -0.8rem 0;   /* bleed to page edges */
+}
+
+@media (min-width: 76.25em) {
+  .hero {
+    margin: -0.8rem calc(-1 * (100vw - 61rem) / 2 - 0.8rem) 0;
+  }
+}
+
+.hero-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ws-lilac);
+  margin-bottom: 1.25rem;
+}
+
+.hero-heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--ws-hero-text);
+  margin: 0 auto 1.25rem;
+  max-width: 22ch;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--ws-hero-sub);
+  max-width: 54ch;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 44px;
+  min-width: 44px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--ws-lilac);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--ws-purple);
+  color: #fff;
+  border-color: var(--ws-purple);
+}
+
+.btn-primary:hover {
+  background: var(--ws-purple-light);
+  border-color: var(--ws-purple-light);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ws-hero-text);
+  border-color: rgba(196, 181, 253, 0.55);
+}
+
+.btn-secondary:hover {
+  background: rgba(196, 181, 253, 0.12);
+  border-color: var(--ws-lilac);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Chapter-card grid
+   -------------------------------------------------------------------------- */
+
+.chapter-grid-section {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+/* Each card is the <a> element */
+.chapter-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ws-surface);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  box-shadow: var(--ws-shadow);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+.chapter-card:hover {
+  box-shadow: var(--ws-shadow-hover);
+  transform: translateY(-3px);
+  border-color: var(--ws-purple-light);
+}
+
+.chapter-card:focus-visible {
+  outline: 3px solid var(--ws-purple);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter-card {
+    transition: none;
+  }
+  .chapter-card:hover {
+    transform: none;
+  }
+}
+
+/* 16:9 thumbnail wrapper */
+.chapter-card__img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  overflow: hidden;
+  background: var(--ws-surface-raise);
+}
+
+.chapter-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.chapter-card__body {
+  padding: 1.25rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.chapter-card__category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ws-purple);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+[data-md-color-scheme="slate"] .chapter-card__category {
+  color: var(--ws-lilac);
+}
+
+.chapter-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ws-text);
+  margin: 0 0 0.6rem;
+}
+
+.chapter-card__desc {
+  font-size: 0.9rem;
+  color: var(--ws-text-muted);
+  line-height: 1.6;
+  flex: 1;
+  margin: 0 0 1rem;
+}
+
+.chapter-card__link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ws-purple);
+  display: block;
+}
+
+[data-md-color-scheme="slate"] .chapter-card__link {
+  color: var(--ws-purple-light);
+}
+
+/* --------------------------------------------------------------------------
+   7. Chapter hero images (content pages)
+   -------------------------------------------------------------------------- */
+
+.chapter-hero {
+  margin: -0.8rem 0 2rem;
+}
+
+.chapter-hero__img {
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  border-radius: var(--ws-radius);
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--ws-shadow);
+}
+
+/* --------------------------------------------------------------------------
+   8. Chapter navigation
+   -------------------------------------------------------------------------- */
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--ws-border);
+  margin-top: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.chapter-nav__prev,
+.chapter-nav__next {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ws-purple);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+[data-md-color-scheme="slate"] .chapter-nav__prev,
+[data-md-color-scheme="slate"] .chapter-nav__next {
+  color: var(--ws-purple-light);
+}
+
+.chapter-nav__prev:hover,
+.chapter-nav__next:hover {
+  color: var(--ws-purple-light);
+  text-decoration: underline;
+}
+
+.chapter-nav__prev:focus-visible,
+.chapter-nav__next:focus-visible {
+  outline: 3px solid var(--ws-purple);
+  outline-offset: 3px;
+  border-radius: var(--ws-radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   9. Call-to-action panel
+   -------------------------------------------------------------------------- */
+
+.cta-panel {
+  background: var(--ws-surface-raise);
+  border: 1px solid var(--ws-border);
+  border-left: 4px solid var(--ws-purple);
+  border-radius: var(--ws-radius);
+  padding: 2rem 2.5rem;
+  margin: 2.5rem 0;
+}
+
+.cta-panel__heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ws-text);
+  margin: 0 0 0.75rem;
+}
+
+.cta-panel p {
+  color: var(--ws-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+  10. Booking form
+   -------------------------------------------------------------------------- */
+
+.booking-form-wrap {
+  max-width: 720px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-section {
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  padding: 1.5rem 1.75rem 1.75rem;
+  background: var(--ws-surface);
+}
+
+.form-section__legend {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ws-purple);
+  padding: 0 0.5rem;
+}
+
+[data-md-color-scheme="slate"] .form-section__legend {
+  color: var(--ws-lilac);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ws-text);
+}
+
+.form-label__required {
+  color: var(--ws-peach);
+  margin-left: 0.15rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  background: var(--ws-bg);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius-sm);
+  color: var(--ws-text);
+  font-size: 0.95rem;
+  font-family: inherit;
+  min-height: 44px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--ws-purple);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--ws-text-muted);
+}
+
+.form-error {
+  font-size: 0.82rem;
+  color: #e53e3e;
+  font-weight: 600;
+  min-height: 1.2em;
+}
+
+[data-md-color-scheme="slate"] .form-error {
+  color: #fc8181;
+}
+
+.form-privacy {
+  background: var(--ws-surface-raise);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius-sm);
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--ws-text-muted);
+}
+
+.form-privacy p {
+  margin: 0.4rem 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-status {
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.form-status--success {
+  background: rgba(56, 178, 108, 0.12);
+  border: 1px solid rgba(56, 178, 108, 0.5);
+  border-radius: var(--ws-radius-sm);
+  color: #276749;
+  padding: 1rem 1.25rem;
+}
+
+[data-md-color-scheme="slate"] .form-status--success {
+  color: #68d391;
+}
+
+.form-status--error {
+  background: rgba(229, 62, 62, 0.10);
+  border: 1px solid rgba(229, 62, 62, 0.4);
+  border-radius: var(--ws-radius-sm);
+  color: #c53030;
+  padding: 1rem 1.25rem;
+}
+
+[data-md-color-scheme="slate"] .form-status--error {
+  color: #fc8181;
+}
+
+/* --------------------------------------------------------------------------
+  11. Material theme colour overrides
+   -------------------------------------------------------------------------- */
+
+/* Primary colour for header, links, accents */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #6d3dcc;
+  --md-primary-fg-color--light: #8b5cf6;
+  --md-primary-fg-color--dark:  #4c2899;
+  --md-accent-fg-color:         #8b5cf6;
+  --md-default-bg-color:        #faf8ff;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #8b5cf6;
+  --md-primary-fg-color--light: #a78bfa;
+  --md-primary-fg-color--dark:  #6d3dcc;
+  --md-accent-fg-color:         #c4b5fd;
+  --md-default-bg-color:        #15151f;
+  --md-default-fg-color:        #f8f7fc;
+}
+
+/* --------------------------------------------------------------------------
+  12. Responsive adjustments
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero-heading {
+    font-size: 1.8rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chapter-grid {
+    grid-template-columns: 1fr;
+    padding: 0 0.75rem;
+  }
+
+  .chapter-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-section {
+    padding: 1.25rem 1rem;
+  }
+
+  .cta-panel {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+  .chapter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+  13. Reduced-motion support
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

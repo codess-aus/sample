@@ -1,0 +1,150 @@
+# ---------------------------------------------------------------------------
+# MkDocs configuration – AI Education & Mentoring Workshop Site
+# ---------------------------------------------------------------------------
+# Site URL: update 'site_url' and 'repo_url' before going live.
+# Custom domain: set CNAME in docs/ and update 'site_url'.
+# ---------------------------------------------------------------------------
+
+site_name: AI Education & Mentoring Workshops
+site_description: >-
+  Practical AI workshops for leaders, students and young professionals —
+  built on real industry experience and a genuine passion for education.
+site_author: Codess-Aus  # Replace with educator's full name
+# site_url: https://codess-aus.github.io/sample/  # ← update when live
+copyright: >-
+  &copy; 2025 AI Education &amp; Mentoring Workshops.
+  All rights reserved. &nbsp;|&nbsp;
+  <a href="privacy/">Privacy</a>
+
+# ---------------------------------------------------------------------------
+# Repository (shown in header; remove if not needed)
+# ---------------------------------------------------------------------------
+# repo_url: https://github.com/codess-aus/sample
+# repo_name: codess-aus/sample
+
+# ---------------------------------------------------------------------------
+# Theme
+# ---------------------------------------------------------------------------
+theme:
+  name: material
+
+  logo: assets/images/site-icon.svg
+  favicon: assets/images/site-icon.svg
+
+  palette:
+    # Automatic: respect OS preference, allow toggle
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+  font:
+    # Using system fonts via CSS; Material will load Inter as fallback.
+    text: Inter
+    code: Roboto Mono
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - toc.follow
+
+# ---------------------------------------------------------------------------
+# Navigation
+# ---------------------------------------------------------------------------
+nav:
+  - Home: index.md
+  - About: about.md
+  - AI for Leaders: ai-for-leaders.md
+  - Students & Young Professionals: industrial-problem-solving.md
+  - Approach:
+    - Teaching Approach: approach.md
+    - Philosophy: philosophy.md
+  - Book a Workshop: book-a-workshop.md
+  - Privacy: privacy.md
+
+# ---------------------------------------------------------------------------
+# Extras
+# ---------------------------------------------------------------------------
+extra:
+  social:
+    # Replace href values with real profile URLs
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/placeholder   # ← update
+      name: LinkedIn
+    - icon: fontawesome/brands/github
+      link: https://github.com/codess-aus         # ← update
+      name: GitHub
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/placeholder        # ← update
+      name: Twitter / X
+  # generator: false  # ← uncomment to hide "Made with Material" footer line
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/extra.js
+
+# ---------------------------------------------------------------------------
+# Markdown extensions
+# ---------------------------------------------------------------------------
+markdown_extensions:
+  # Attribute lists – add CSS classes to blocks
+  - attr_list
+  # Admonitions – note, warning, tip, etc.
+  - admonition
+  # Collapsible admonitions
+  - pymdownx.details
+  # Content tabs
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Tables
+  - tables
+  # Footnotes
+  - footnotes
+  # Task lists
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # Emoji and icons
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # Heading anchor permalinks
+  - toc:
+      permalink: true
+      toc_depth: 3
+  # Better emphasis
+  - pymdownx.betterem
+  # Smart symbols
+  - pymdownx.smartsymbols
+  # Highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+  # Inline highlighting
+  - pymdownx.inlinehilite
+  # Snippets
+  - pymdownx.snippets
+  # Superfences (code blocks inside admonitions, tabs, etc.)
+  - pymdownx.superfences
+
+# ---------------------------------------------------------------------------
+# Plugins
+# ---------------------------------------------------------------------------
+plugins:
+  - search
