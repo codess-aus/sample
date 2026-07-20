@@ -1,0 +1,70 @@
+# ---------------------------------------------------------------------------
+# GitHub Actions — Deploy MkDocs site to GitHub Pages
+# ---------------------------------------------------------------------------
+# Triggers: push to main branch, or manual workflow_dispatch.
+#
+# Configuration checklist before enabling:
+#   1. In repo Settings → Pages, set source to "GitHub Actions".
+#   2. Update site_url in mkdocs.yml to match your Pages URL.
+#   3. If using a custom domain, add a CNAME file to docs/ and update site_url.
+#   4. Replace REPLACE_WITH_YOUR_FORM_ID in book-a-workshop.md with your
+#      Formspree endpoint (or another service).
+# ---------------------------------------------------------------------------
+
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main      # ← change branch name here if needed
+  workflow_dispatch:
+
+# Least-privilege permissions
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent concurrent deployments; cancel in-flight runs on the same branch
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build MkDocs site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history for git-revision-date plugins if added later
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build MkDocs site (strict mode)
+        run: mkdocs build --strict
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site   # MkDocs default output directory
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      # url is set automatically by the deploy-pages action
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
