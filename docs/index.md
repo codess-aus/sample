@@ -90,7 +90,7 @@ hide:
     <a class="chapter-card" href="industrial-problem-solving/" aria-label="Industrial Problem-Solving – For Students & Young Professionals">
       <div class="chapter-card__img-wrap">
         <img
-          src="assets/images/industrial-problem-solving.png"
+          src="assets/images/sample6.png"
           alt="Students working together on a real-world engineering challenge"
           width="640" height="360"
           loading="lazy"
@@ -111,7 +111,7 @@ hide:
     <a class="chapter-card" href="approach/" aria-label="Mentoring Today – Approach chapter">
       <div class="chapter-card__img-wrap">
         <img
-          src="assets/images/mentoring-today.png"
+          src="assets/images/sample7.png"
           alt="Mentor working closely with a group of students"
           width="640" height="360"
           loading="lazy"
@@ -132,7 +132,7 @@ hide:
     <a class="chapter-card" href="book-a-workshop/" aria-label="Book a Workshop – Get Started">
       <div class="chapter-card__img-wrap">
         <img
-          src="assets/images/book-a-workshop.png"
+          src="assets/images/sample4.png"
           alt="A calendar and planning materials representing a workshop booking"
           width="640" height="360"
           loading="lazy"
