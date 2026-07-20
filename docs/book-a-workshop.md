@@ -7,7 +7,7 @@ description: >-
 
 <div class="chapter-hero">
   <img
-    src="assets/images/sample4.png"
+    src="../assets/images/sample4.png"
     alt="A workshop in progress with engaged participants"
     loading="eager"
     class="chapter-hero__img"

@@ -7,7 +7,7 @@ description: >-
 
 <div class="chapter-hero">
   <img
-    src="assets/images/ai-for-leaders.png"
+    src="../assets/images/ai-for-leaders.png"
     alt="Business leaders engaged in a strategic discussion about AI"
     loading="eager"
     class="chapter-hero__img"

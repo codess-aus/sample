@@ -8,7 +8,7 @@ description: >-
 
 <div class="chapter-hero">
   <img
-    src="assets/images/empowering-minds.png"
+    src="../assets/images/empowering-minds.png"
     alt="Educator on stage, connecting with an engaged audience"
     loading="eager"
     class="chapter-hero__img"
