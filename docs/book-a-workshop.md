@@ -55,6 +55,7 @@ If you prefer, you can also reach out directly by email:
     id="form-status"
     class="form-status"
     role="status"
+    tabindex="-1"
     aria-live="polite"
     aria-atomic="true"
   ></div>
