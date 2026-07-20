@@ -13,14 +13,21 @@
   if (!form) return;
 
   const statusRegion = document.getElementById("form-status");
+  if (!statusRegion) return;
 
   /**
    * Show a status message in the accessible live region.
-   * @param {string} html   - Inner HTML to display
+   * @param {string} message
    * @param {"success"|"error"|""} type
+   * @param {{ allowHtml?: boolean }} [options]
    */
-  function showStatus(html, type) {
-    statusRegion.innerHTML = html;
+  function showStatus(message, type, options) {
+    const allowHtml = options && options.allowHtml === true;
+    if (allowHtml) {
+      statusRegion.innerHTML = message;
+    } else {
+      statusRegion.textContent = message;
+    }
     statusRegion.className =
       "form-status" + (type ? " form-status--" + type : "");
   }
