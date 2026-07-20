@@ -134,7 +134,7 @@ body {
   margin-bottom: 1.25rem;
 }
 
-.hero-heading {
+.md-typeset .hero .hero-heading {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
@@ -183,7 +183,7 @@ body {
   outline-offset: 3px;
 }
 
-.btn-primary {
+.md-typeset .hero .btn-primary {
   background: var(--ws-purple);
   color: #fff;
   border-color: var(--ws-purple);
@@ -196,7 +196,7 @@ body {
   transform: translateY(-1px);
 }
 
-.btn-secondary {
+.md-typeset .hero .btn-secondary {
   background: transparent;
   color: var(--ws-hero-text);
   border-color: rgba(196, 181, 253, 0.55);

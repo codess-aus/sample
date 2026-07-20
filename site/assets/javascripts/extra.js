@@ -13,14 +13,21 @@
   if (!form) return;
 
   const statusRegion = document.getElementById("form-status");
+  if (!statusRegion) return;
 
   /**
    * Show a status message in the accessible live region.
-   * @param {string} html   - Inner HTML to display
+   * @param {string} message
    * @param {"success"|"error"|""} type
+   * @param {{ allowHtml?: boolean }} [options]
    */
-  function showStatus(html, type) {
-    statusRegion.innerHTML = html;
+  function showStatus(message, type, options) {
+    const allowHtml = options && options.allowHtml === true;
+    if (allowHtml) {
+      statusRegion.innerHTML = message;
+    } else {
+      statusRegion.textContent = message;
+    }
     statusRegion.className =
       "form-status" + (type ? " form-status--" + type : "");
   }
@@ -94,6 +101,8 @@
 
     /* Attempt to submit via fetch (for Formspree and similar services) */
     const submitBtn = form.querySelector('[type="submit"]');
+    if (!submitBtn) return;
+
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending…";
 
@@ -106,8 +115,7 @@
 
       if (response.ok) {
         showStatus(
-          "<strong>Thank you for your enquiry.</strong> " +
-            "We will be in touch within a few business days.",
+          "Thank you for your enquiry. We will be in touch within a few business days.",
           "success"
         );
         form.reset();
@@ -123,7 +131,8 @@
       showStatus(
         "Unable to send your enquiry right now. " +
           "Please email <a href='mailto:hello@placeholder.example'>hello@placeholder.example</a> directly.",
-        "error"
+        "error",
+        { allowHtml: true }
       );
     } finally {
       submitBtn.disabled = false;
