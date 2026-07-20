@@ -8,7 +8,7 @@ description: >-
 
 <div class="chapter-hero">
   <img
-    src="assets/images/mentoring-today.png"
+    src="assets/images/sample7.png"
     alt="A mentor working closely with a small group, discussion in progress"
     loading="eager"
     class="chapter-hero__img"
