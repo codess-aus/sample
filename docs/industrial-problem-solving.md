@@ -8,7 +8,7 @@ description: >-
 
 <div class="chapter-hero">
   <img
-    src="../assets/images/industrial-problem-solving.png"
+    src="../assets/images/sample6.png"
     alt="Students collaborating on a structured problem-solving challenge"
     loading="eager"
     class="chapter-hero__img"

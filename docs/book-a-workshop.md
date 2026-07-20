@@ -5,6 +5,15 @@ description: >-
   educational institution. Get in touch to start the conversation.
 ---
 
+<div class="chapter-hero">
+  <img
+    src="../assets/images/sample4.png"
+    alt="A workshop in progress with engaged participants"
+    loading="eager"
+    class="chapter-hero__img"
+  >
+</div>
+
 # Bring Practical AI Learning to Your Organisation
 
 Whether you are running a leadership retreat, a student programme, a university
