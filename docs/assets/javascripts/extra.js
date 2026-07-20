@@ -131,7 +131,8 @@
       showStatus(
         "Unable to send your enquiry right now. " +
           "Please email <a href='mailto:hello@placeholder.example'>hello@placeholder.example</a> directly.",
-        "error"
+        "error",
+        { allowHtml: true }
       );
     } finally {
       submitBtn.disabled = false;
